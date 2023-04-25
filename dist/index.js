@@ -473,7 +473,6 @@ const exec = __importStar(__nccwpck_require__(1514));
 const fshelper = __importStar(__nccwpck_require__(7219));
 const io = __importStar(__nccwpck_require__(7436));
 const path = __importStar(__nccwpck_require__(1017));
-const refHelper = __importStar(__nccwpck_require__(8601));
 const regexpHelper = __importStar(__nccwpck_require__(3120));
 const retryHelper = __importStar(__nccwpck_require__(2155));
 const git_version_1 = __nccwpck_require__(3142);
@@ -618,9 +617,9 @@ class GitCommandManager {
     fetch(refSpec, fetchDepth) {
         return __awaiter(this, void 0, void 0, function* () {
             const args = ['-c', 'protocol.version=2', 'fetch'];
-            if (!refSpec.some(x => x === refHelper.tagsRefSpec)) {
-                args.push('--no-tags');
-            }
+            // if (!refSpec.some(x => x === refHelper.tagsRefSpec)) {
+            //   args.push('--no-tags')
+            // }
             args.push('--prune', '--progress', '--no-recurse-submodules');
             if (fetchDepth && fetchDepth > 0) {
                 args.push(`--depth=${fetchDepth}`);
